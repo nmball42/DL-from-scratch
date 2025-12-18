@@ -14,7 +14,7 @@ Using a segmentation neural network to detect objects in satellite raster data i
 
 ## Setup
 
-- Create virtualenv, e.g., `.conda` in current directory in VSCode
+- Create virtualenv, e.g., `.venv` in current directory in VSCode
 - `pip install torchgeo tensorboard`
 
 ## Run
