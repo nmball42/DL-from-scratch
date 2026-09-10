@@ -1,8 +1,8 @@
 # End-to-end GeoAI with TorchGeo
 
-Last updated: Dec 18th 2025
+Last updated: Sep 10th 2026
 
-Using a segmentation neural network to detect objects in satellite raster data is now a fairly common GeoAI use case, and can be done in a broad-brush sense with no-code or low-code tools. Finer-grained control of the model, data, and processing is often still desirable for real end-to-end analyses, however. The TorchGeo tool builds upon PyTorch and PyTorch Lightning to enable end-to-end GeoAI for a wide range of use cases, and we show how plain PyTorch code is augmented by Lightning’s data and model modules, then in turn by TorchGeo’s geospatial functionality. This lets us run end-to-end building detection and control the details.
+Using a segmentation neural network to detect objects in satellite raster data is now a fairly common GeoAI use case, and can be done in a broad-brush sense with no-code or low-code tools. Finer-grained control of the model, data, and processing is often still desirable for real end-to-end analyses, however. The TorchGeo tool builds upon PyTorch and PyTorch Lightning to enable end-to-end GeoAI for a wide range of use cases. We show how plain PyTorch code is augmented by Lightning’s data and model modules, then in turn by TorchGeo’s geospatial functionality. This lets us run end-to-end building detection as an example, and control the details.
 
 ## Requirements
 
@@ -11,19 +11,31 @@ Using a segmentation neural network to detect objects in satellite raster data i
     - Python extension
     - Jupyter extension
     - Install iPyKernel
+- TorchGeo 0.7.1
 
 ## Setup
 
 - Create virtualenv, e.g., `.venv` in current directory in VSCode
-- `pip install torchgeo tensorboard`
+- `pip install torchgeo==0.7.1 tensorboard`
 
 ## Run
 
-- Run Jupyter notebook `run_inria.ipynb`
+- Run Jupyter notebook `run_inria.ipynb` for model training
+- Optionally, view data with `view_inria.ipynb`
 
 ## Improvements
 
-- Find why it detects all gray, e.g., roads, and not just buildings
-- Run using better data, maybe MMEarth
-- If there is a reasonable hyperparameter sweep to try, run it to optimize model performance
+To existing features
+
+- Upgrade BCE metric to Dice/IoU in TorchGeo 0.11+ (pending https://github.com/torchgeo/torchgeo/issues/4050)
+- Get back the missing pixels 4097-5000 in the prediction images resulting from 1024x1024 patch size on 5000x5000 images
+- Overlay predictions and ground truth labels for validation set
+
+## Extensions
+
+Add new features
+
+- Output predicted buildings as vectors
 - Run on images of Millbrae to improve the OpenStreetMap building outlines in this area
+- Run larger models, e.g., `resnet152` backbone on cloud, or geo foundation models, with hyperparameter sweep
+- Augment the Inria data with more modern data, e.g., MMEarth
