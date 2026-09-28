@@ -1,6 +1,12 @@
 # End-to-end GeoAI with TorchGeo
 
-Last updated: Sep 11th 2026
+Last updated: Sep 28th 2026
+
+<p align="center">
+  <img src="sfo15.jpg" alt="Showcase Banner" width="50%">
+  <br>
+  <em>Example from Inria Aerial Imaging (Emmanuel Maggiori, et al., IEEE International Geoscience and Remote Sensing Symposium (IGARSS, 2017)</em>
+</p>
 
 Using a segmentation neural network to detect objects in satellite raster data is now a fairly common GeoAI use case, and can be done in a broad-brush sense with no-code or low-code tools. Finer-grained control of the model, data, and processing is often still desirable for real end-to-end analyses, however. The TorchGeo tool builds upon PyTorch and PyTorch Lightning to enable end-to-end GeoAI for a wide range of use cases. We show how plain PyTorch code is augmented by Lightning’s data and model modules, then in turn by TorchGeo’s geospatial functionality. This lets us run end-to-end building detection as an example, and control the details. ([Blogpost](https://nickballdatascience.com/end-to-end-geoai-with-torchgeo/))
 
